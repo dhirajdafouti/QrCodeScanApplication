@@ -1,0 +1,14 @@
+buildscript {
+    ext.kotlin_version = "1.6.10"
+    ext.latestAboutLibsRelease = "8.3.0"
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        def gradle = '7.0.2'
+        classpath "com.android.tools.build:gradle:$gradle"
+        classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+        classpath "com.mikepenz.aboutlibraries.plugin:aboutlibraries-plugin:${latestAboutLibsRelease}"
+    }
+}
