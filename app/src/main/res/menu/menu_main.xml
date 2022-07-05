@@ -1,10 +1,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.project.basicqrcodescan.MainActivity">
+    tools:context=".MainActivity">
+
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_about"
+        android:icon="@drawable/ic_baseline_flash_on_24"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/settings_about"
         app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/action_flash"
+        android:icon="@drawable/ic_baseline_flash_off_24"
+        android:orderInCategory="100"
+        android:title="@string/turn_on_flash"
+        app:showAsAction="ifRoom" />
 </menu>

@@ -1,14 +1,33 @@
 buildscript {
+    ext {
+        compose_version = '1.1.0-beta01'
+    }
     ext.kotlin_version = "1.6.10"
     ext.latestAboutLibsRelease = "8.3.0"
     repositories {
         google()
         jcenter()
+        maven {
+            url 'https://jitpack.io'
+        }
     }
     dependencies {
-        def gradle = '7.0.2'
+        def gradle = '7.2.1'
         classpath "com.android.tools.build:gradle:$gradle"
         classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
-        classpath "com.mikepenz.aboutlibraries.plugin:aboutlibraries-plugin:${latestAboutLibsRelease}"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+    }
+    subprojects {
+        repositories {
+            google()
+            jcenter()
+            mavenLocal()
+        }
+
+        version = '4.1.0'
+        group = 'com.journeyapps'
+
+        ext.androidTargetSdk = 28
+        ext.zxingCore = 'com.google.zxing:core:3.4.0'
     }
 }
