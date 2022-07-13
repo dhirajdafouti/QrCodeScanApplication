@@ -39,7 +39,6 @@ id zxing_viewfinder_view
 layout zxing_barcode_scanner
 layout zxing_capture
 raw zxing_beep
-string app_version
 string define_zxingandroidembedded
 string library_zxingandroidembedded_author
 string library_zxingandroidembedded_authorWebsite

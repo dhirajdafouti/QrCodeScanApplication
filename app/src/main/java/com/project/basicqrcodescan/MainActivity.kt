@@ -1,6 +1,7 @@
 package com.project.basicqrcodescan
 
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.Menu
@@ -62,13 +63,22 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.exit -> {
+                startActivity(Intent(this, WelcomeActivity::class.java))
+                finish()
+                true
+            }
+            R.id.action_about -> {
+                if (!flashActive) {
+                    flashActive = true
+                    scanFragment.enableFlash(true)
+                }
+                true
+            }
             R.id.action_flash -> {
                 if (flashActive) {
                     flashActive = false
                     scanFragment.enableFlash(false)
-                } else {
-                    flashActive = true
-                    scanFragment.enableFlash(true)
                 }
                 invalidateOptionsMenu()
                 true

@@ -19,7 +19,6 @@
     <item name="zxing_possible_result_points" type="id"/>
     <item name="zxing_preview_failed" type="id"/>
     <item name="zxing_prewiew_size_ready" type="id"/>
-    <string name="app_version" translatable="false">null.debug</string>
     <string name="define_zxingandroidembedded" translatable="false"/>
     <string name="library_zxingandroidembedded_author" translatable="false">JourneyApps</string>
     <string name="library_zxingandroidembedded_authorWebsite" translatable="false">https://journeyapps.com/</string>

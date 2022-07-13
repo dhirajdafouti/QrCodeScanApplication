@@ -49,12 +49,9 @@ android {
     }
 
     buildTypes {
-        debug {
-            versionNameSuffix ".debug"
-            resValue "string", "app_version", "${defaultConfig.versionName}${versionNameSuffix}"
-        }
+
         release {
-            resValue "string", "app_version", "${defaultConfig.versionName}"
+          
         }
     }
 }

@@ -37,7 +37,6 @@ int id zxing_viewfinder_view 0x0
 int layout zxing_barcode_scanner 0x0
 int layout zxing_capture 0x0
 int raw zxing_beep 0x0
-int string app_version 0x0
 int string define_zxingandroidembedded 0x0
 int string library_zxingandroidembedded_author 0x0
 int string library_zxingandroidembedded_authorWebsite 0x0

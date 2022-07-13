@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayout"
-    android:background="@color/colorAccent"
+    android:background="@color/colorOnPrimary"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WelcomeActivity">
@@ -17,17 +17,18 @@
         android:text="@string/text"
         android:background="@color/colorOnPrimary"
         android:textColor="@color/colorOnBackground"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="40sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints">
     </androidx.appcompat.widget.AppCompatTextView>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_click"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:cornerRadius="10dp"
         android:layout_marginTop="50dp"
         android:background="@color/colorBackground"
         android:text="@string/next_button"
@@ -36,5 +37,6 @@
         app:layout_constraintTop_toBottomOf="@+id/text"
         tools:ignore="MissingConstraints">
 
-    </androidx.appcompat.widget.AppCompatButton>
+    </com.google.android.material.button.MaterialButton
+     >
 </androidx.constraintlayout.widget.ConstraintLayout >

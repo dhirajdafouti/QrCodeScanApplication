@@ -9,14 +9,13 @@ import com.project.basicqrcodescan.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityWelcomeBinding
-    private lateinit var text:TextView
-    private lateinit var button:Button
+    private lateinit var text: TextView
+    private lateinit var button: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-        text=findViewById(R.id.text)
-        button=findViewById(R.id.button_click)
+        setContentView(R.layout.activity_welcome)
+        text = findViewById(R.id.text)
+        button = findViewById(R.id.button_click)
         button.setOnClickListener {
             startScanningActivity()
         }
@@ -24,7 +23,7 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun startScanningActivity() {
-      val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 
