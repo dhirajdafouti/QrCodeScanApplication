@@ -21,7 +21,7 @@
 
     <style name="Theme.BasicQrCodeScan.AppBarOverlay" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
@@ -30,9 +30,9 @@
         <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
         <item name="colorOnSecondary">@color/colorOnSecondary</item>
         <item name="colorError">@color/colorError</item>
-        <item name="colorOnError">@color/colorOnError</item>
-        <item name="colorSurface">@color/colorSurface</item>
-        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorOnError">@color/about_libraries_text_openSource</item>
+        <item name="colorSurface">@color/cardview_shadow_start_color</item>
+        <item name="colorOnSurface">@color/about_libraries_dividerLight_openSource</item>
         <item name="android:colorBackground">@color/colorBackground</item>
         <item name="colorOnBackground">@color/colorOnBackground</item>
         <item name="android:statusBarColor">@color/toolbarColor</item>
