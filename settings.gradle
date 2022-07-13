@@ -2,4 +2,3 @@
 rootProject.name = "BasicQrCodeScan"
 include ':app'
 include ':zxing-android-embedded'
-include ':app:composescan'
