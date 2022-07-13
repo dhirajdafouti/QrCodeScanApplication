@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".qrcode.MainActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

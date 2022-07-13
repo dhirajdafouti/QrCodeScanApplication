@@ -1,4 +1,4 @@
-package com.project.basicqrcodescan
+package com.project.basicqrcodescan.qrcode
 
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -12,11 +12,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.client.android.BeepManager
-import com.journeyapps.barcodescanner.BarcodeCallback
-import com.journeyapps.barcodescanner.BarcodeResult
 import com.journeyapps.barcodescanner.DecoratedBarcodeView
 import com.journeyapps.barcodescanner.DefaultDecoderFactory
-import com.project.basicqrcodescan.ResultFragment.Companion.RESULT_SCANNER_FRAGMENT_TAG
+import com.project.basicqrcodescan.R
+import com.project.basicqrcodescan.qrcode.ResultFragment.Companion.RESULT_SCANNER_FRAGMENT_TAG
 import pub.devrel.easypermissions.EasyPermissions
 
 

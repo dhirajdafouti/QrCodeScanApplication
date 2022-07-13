@@ -1,4 +1,4 @@
-package com.project.basicqrcodescan
+package com.project.basicqrcodescan.qrcode
 
 class KotlinPractise {
 

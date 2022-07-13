@@ -1,4 +1,4 @@
-package com.project.basicqrcodescan
+package com.project.basicqrcodescan.qrcode
 
 
 import android.content.Intent
@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.project.basicqrcodescan.R
+import com.project.basicqrcodescan.WelcomeActivity
 import com.project.basicqrcodescan.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

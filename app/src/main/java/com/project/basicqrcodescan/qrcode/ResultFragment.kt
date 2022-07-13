@@ -1,4 +1,4 @@
-package com.project.basicqrcodescan
+package com.project.basicqrcodescan.qrcode
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
+import com.project.basicqrcodescan.R
 
 
 /**
@@ -17,6 +18,9 @@ import com.google.android.material.button.MaterialButton
  */
 class ResultFragment : Fragment() {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,10 +31,8 @@ class ResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(false)
         val qrResult = arguments?.getString(QR_RESULt) ?: return
         view.findViewById<TextView>(R.id.qrContent).text = qrResult
-
         view.findViewById<MaterialButton>(R.id.scanAgainButton).setOnClickListener {
             requireActivity().onBackPressed()
         }
