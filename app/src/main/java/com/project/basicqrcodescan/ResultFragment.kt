@@ -27,7 +27,7 @@ class ResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setHasOptionsMenu(false)
         val qrResult = arguments?.getString(QR_RESULt) ?: return
         view.findViewById<TextView>(R.id.qrContent).text = qrResult
 
