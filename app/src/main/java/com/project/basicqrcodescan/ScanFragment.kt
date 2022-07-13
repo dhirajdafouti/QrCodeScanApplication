@@ -1,59 +1,130 @@
 package com.project.basicqrcodescan
 
+import android.content.pm.PackageManager
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.client.android.BeepManager
+import com.journeyapps.barcodescanner.BarcodeCallback
+import com.journeyapps.barcodescanner.BarcodeResult
+import com.journeyapps.barcodescanner.DecoratedBarcodeView
+import com.journeyapps.barcodescanner.DefaultDecoderFactory
+import com.project.basicqrcodescan.ResultFragment.Companion.RESULT_SCANNER_FRAGMENT_TAG
+import pub.devrel.easypermissions.EasyPermissions
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ScanFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ScanFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class ScanFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var beepManager: BeepManager
+    private lateinit var scannerView: DecoratedBarcodeView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_scan, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ScanFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ScanFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        scannerView = view.findViewById(R.id.QRScannerView)
+        beepManager = BeepManager(activity)
+        val formats = mutableListOf(BarcodeFormat.QR_CODE)
+        scannerView.barcodeView.decoderFactory = DefaultDecoderFactory(formats)
+        scannerView.setStatusText(EMPTY)
+        setUpPermission()
+        scannerView.decodeContinuous { result ->
+            result.let {
+                beepManager.isBeepEnabled = false
+                beepManager.playBeepSoundAndVibrate()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer,
+                        ResultFragment.create(result.text),
+                        RESULT_SCANNER_FRAGMENT_TAG)
+                    .addToBackStack(null)
+                    .commit()
             }
+
+        }
+    }
+
+    private fun setUpPermission() {
+        val permission = activity?.let {
+            ContextCompat.checkSelfPermission(it,
+                android.Manifest.permission.CAMERA)
+        }
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            makeRequest()
+        }
+
+    }
+
+    private fun makeRequest() {
+        activity?.let {
+            ActivityCompat.requestPermissions(it,
+                arrayOf(android.Manifest.permission.CAMERA),
+                MainActivity.CAMERA_REQUEST_CODE)
+        }
+    }
+
+    private fun openScanner() {
+        scannerView.resume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        scannerView.pause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        scannerView.resume()
+    }
+
+    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray,
+    ) {
+        when (requestCode) {
+            MainActivity.CAMERA_REQUEST_CODE ->
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(context,
+                        "The Permissions are not Granted For Camera Access!!!",
+                        Toast.LENGTH_SHORT).show()
+                } else {
+                    openScanner()
+                    Log.d(MainActivity.TAG, "Permission Granted!!")
+                }
+        }
+        return super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    fun enableFlash(enable: Boolean) {
+        if (enable) {
+            scannerView.setTorchOn();
+        } else {
+            scannerView.setTorchOff()
+        }
+    }
+
+
+    companion object {
+        const val SCANNER_FRAGMENT_TAG: String = "ScannerFragmentTag"
+        const val EMPTY = ""
     }
 }

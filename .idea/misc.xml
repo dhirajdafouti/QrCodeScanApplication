@@ -5,8 +5,11 @@
       <map>
         <entry key="..\:/Users/dhira/OneDrive/Desktop/Kotlin/BasicQrCodeScan/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/dhira/OneDrive/Desktop/Kotlin/BasicQrCodeScan/app/src/main/res/layout/activity_welcome.xml" value="0.1" />
+        <entry key="..\:/Users/dhira/OneDrive/Desktop/Kotlin/BasicQrCodeScan/app/src/main/res/layout/content_main.xml" value="0.2" />
         <entry key="..\:/Users/dhira/OneDrive/Desktop/Kotlin/BasicQrCodeScan/app/src/main/res/layout/fragment_first.xml" value="0.10729166666666666" />
-        <entry key="..\:/Users/dhira/OneDrive/Desktop/Kotlin/BasicQrCodeScan/app/src/main/res/layout/fragment_result.xml" value="0.10729166666666666" />
+        <entry key="..\:/Users/dhira/OneDrive/Desktop/Kotlin/BasicQrCodeScan/app/src/main/res/layout/fragment_result.xml" value="0.1" />
+        <entry key="..\:/Users/dhira/OneDrive/Desktop/Kotlin/BasicQrCodeScan/app/src/main/res/layout/fragment_scan.xml" value="0.2" />
+        <entry key="..\:/Users/dhira/OneDrive/Desktop/Kotlin/BasicQrCodeScan/app/src/main/res/menu/menu_main.xml" value="0.1" />
       </map>
     </option>
   </component>

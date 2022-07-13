@@ -39,8 +39,6 @@
         <item name="android:windowLightStatusBar">false</item>
         <item name="colorControlNormal">@android:color/white</item>
         <item name="textAppearanceButton">@style/TextAppearance.SecureQRReader.Button</item>
-
-
         <item name="shapeAppearanceSmallComponent">@style/AppShapeAppearance.SmallComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/AppShapeAppearance.MediumComponent</item>
         <item name="shapeAppearanceLargeComponent">@style/AppShapeAppearance.LargeComponent</item>
