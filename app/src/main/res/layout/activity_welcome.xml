@@ -17,7 +17,7 @@
         android:text="@string/text"
         android:background="@color/colorOnPrimary"
         android:textColor="@color/colorOnBackground"
-        android:textSize="40sp"
+        android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
