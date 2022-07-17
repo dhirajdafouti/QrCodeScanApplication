@@ -20,5 +20,6 @@
     <string name="show_on_github" translatable="false">Show on GitHub</string>
     <string name="open_source_licenses" translatable="false">Open Source Licenses</string>
     <string name="scan_instructions" translatable="false">Just frame the QR code and it will be recognized automatically</string>
-    <string name="Exit">Exit</string>
+    <string name="Exit" translatable="false">Exit</string>
+    <string name="title_activity_qr_code_compose" translatable="false">QrCodeCompose</string>
 </resources>

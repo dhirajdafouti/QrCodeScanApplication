@@ -27,7 +27,7 @@ buildscript {
         version = '4.1.0'
         group = 'com.journeyapps'
 
-        ext.androidTargetSdk = 28
+        ext.androidTargetSdk = 31
         ext.zxingCore = 'com.google.zxing:core:3.4.0'
     }
 }

@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     //https://github.com/prof18/Secure-QR-Reader
     //https://youtu.be/Sb4avOp7D_k
     //https://youtu.be/drH63NpSWyk
-    //https://www.youtube.com/watch?v=wfucGSKngq4
+    //https://www.youtube.com/watch?v=wfucGSKngq4(best)
     //https://www.youtube.com/watch?v=AiNi9K94W5c
     //https://www.youtube.com/playlist?list=PLirRGafa75rQOi3so_ngAHqDmq_Djifwu
     //https://www.youtube.com/watch?v=6OFniVVzmgQ

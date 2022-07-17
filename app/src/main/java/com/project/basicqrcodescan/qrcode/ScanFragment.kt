@@ -34,7 +34,19 @@ class ScanFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         super.onViewCreated(view, savedInstanceState)
         scannerView = view.findViewById(R.id.QRScannerView)
         beepManager = BeepManager(activity)
-        val formats = mutableListOf(BarcodeFormat.QR_CODE)
+        val formats = mutableListOf(BarcodeFormat.QR_CODE,
+            BarcodeFormat.CODE_128,
+            BarcodeFormat.CODE_39,
+            BarcodeFormat.MAXICODE,
+            BarcodeFormat.UPC_A,
+            BarcodeFormat.MAXICODE,
+            BarcodeFormat.CODE_93,
+            BarcodeFormat.UPC_E,
+            BarcodeFormat.UPC_E,
+            BarcodeFormat.CODABAR,
+            BarcodeFormat.EAN_13,
+            BarcodeFormat.EAN_8,
+            BarcodeFormat.EAN_8)
         scannerView.barcodeView.decoderFactory = DefaultDecoderFactory(formats)
         scannerView.setStatusText(EMPTY)
         setUpPermission()
