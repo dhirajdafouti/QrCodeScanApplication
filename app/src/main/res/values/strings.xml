@@ -22,5 +22,7 @@
     <string name="scan_instructions" translatable="false">Just frame the QR code and it will be recognized automatically</string>
     <string name="Exit" translatable="false">Exit</string>
     <string name="title_activity_qr_code_compose" translatable="false">QrCodeCompose</string>
-    <string name="barcodeValue">BarCodeValue</string>
+    <string name="barcodeValue" translatable="false">BarCodeValue</string>
+    <string name="flash_off" translatable="false">Flash Off</string>
+    <string name="flash_on" translatable="false">Flash On</string>
 </resources>

@@ -1,15 +1,13 @@
 package com.project.basicqrcodescan.barcode
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
 import android.util.Log
-import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
@@ -23,9 +21,6 @@ import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
-import com.journeyapps.barcodescanner.CameraPreview
-import com.project.basicqrcodescan.R
-import com.project.basicqrcodescan.databinding.ActivityMainBinding
 import com.project.basicqrcodescan.databinding.ActivityQrCodeSampleComposeBinding
 import com.project.basicqrcodescan.qrcode.MainActivity
 import java.util.concurrent.Executors
@@ -39,11 +34,15 @@ class QrCodeSampleCameraX : AppCompatActivity() {
     private lateinit var cameraPreview: PreviewView
     private lateinit var barCodeText: TextView
     private lateinit var binding: ActivityQrCodeSampleComposeBinding
+    private lateinit var buttonOn: Button
+    private lateinit var buttonOff: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQrCodeSampleComposeBinding.inflate(layoutInflater)
         cameraPreview = binding.previewCameraMlKit
         barCodeText = binding.textview
+        buttonOn = binding.button
+        buttonOff = binding.button2
         setContentView(binding.root)
         val permission = setUpPermission()
         if (permission) {
@@ -76,6 +75,7 @@ class QrCodeSampleCameraX : AppCompatActivity() {
                 .build()
                 .also {
                     it.setSurfaceProvider(cameraPreview.surfaceProvider)
+
                 }
 
             // configure our MLKit BarcodeScanning client
@@ -114,11 +114,21 @@ class QrCodeSampleCameraX : AppCompatActivity() {
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
             try {
-                cameraProvider.bindToLifecycle(
+                val camera = cameraProvider.bindToLifecycle(
                     this,
                     cameraSelector,
                     previewUseCase,
                     analysisUseCase)
+                if (camera.cameraInfo.hasFlashUnit()) {
+                    buttonOn.setOnClickListener {
+                        camera.cameraControl.enableTorch(true)
+                    }
+
+                }
+
+                buttonOff.setOnClickListener {
+                    camera.cameraControl.enableTorch(false)
+                }
             } catch (illegalStateException: IllegalStateException) {
                 // If the use case has already been bound to another lifecycle or method is not called on main thread.
                 Log.e(TAG, illegalStateException.message.orEmpty())
