@@ -27,7 +27,7 @@
             android:exported="true"
             android:label="@string/title_activity_qr_code_compose" />
         <activity
-            android:name=".barcode.QrCodeSampleCompose"
+            android:name=".barcode.QrCodeSampleCameraX"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,10 +39,10 @@
             android:name=".WelcomeActivity"
             android:exported="true"
             android:label="@string/title_activity_welcome"></activity>
-        <activity
-            android:name=".qrcode.MainActivity"
-            android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar" />
+<!--        <activity-->
+<!--            android:name=".qrcode.MainActivity"-->
+<!--            android:exported="true"-->
+<!--            android:theme="@style/AppTheme.NoActionBar" />-->
     </application>
 
 </manifest>

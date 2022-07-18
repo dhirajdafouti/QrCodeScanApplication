@@ -4,6 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".barcode.QrCodeSampleCompose">
+    tools:context=".barcode.QrCodeSampleCameraX">
 
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/preview_camera_ml_kit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="40dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </androidx.camera.view.PreviewView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:gravity="start"
+        android:text="@string/barcodeValue"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/preview_camera_ml_kit"
+        tools:text="@string/barcodeValue" />
 </androidx.constraintlayout.widget.ConstraintLayout>

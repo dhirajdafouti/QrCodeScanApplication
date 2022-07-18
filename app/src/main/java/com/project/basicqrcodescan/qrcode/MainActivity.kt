@@ -51,9 +51,9 @@ class MainActivity : AppCompatActivity() {
             override fun onFragmentResumed(fm: FragmentManager, fragment: Fragment) {
                 super.onFragmentResumed(fm, fragment)
                 if (fragment is ScanFragment) {
-                    hideFlashMenu(false)
+                   // hideFlashMenu(false)
                 } else if (fragment is ResultFragment) {
-                    hideFlashMenu(true)
+                   // hideFlashMenu(true)
                 }
 
             }
@@ -62,62 +62,62 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.exit -> {
-                startActivity(Intent(this, WelcomeActivity::class.java))
-                finish()
-                true
-            }
-            R.id.action_about -> {
-                if (!flashActive) {
-                    flashActive = true
-                    scanFragment.enableFlash(true)
-                }
-                true
-            }
-            R.id.action_flash -> {
-                if (flashActive) {
-                    flashActive = false
-                    scanFragment.enableFlash(false)
-                }
-                invalidateOptionsMenu()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-
-        if (!hasFlash()) {
-            menu?.findItem(R.id.action_flash)?.isVisible = false
-        }
-        menu?.findItem(R.id.action_flash)?.isVisible = !hideFlashActive
-        if (flashActive) {
-            menu?.findItem(R.id.action_flash)?.icon =
-                ContextCompat.getDrawable(this, R.drawable.ic_baseline_flash_off_24)
-        } else {
-            menu?.findItem(R.id.action_flash)?.icon =
-                ContextCompat.getDrawable(this, R.drawable.ic_baseline_flash_on_24)
-        }
-
-        return super.onPrepareOptionsMenu(menu)
-    }
-
-    private fun hasFlash(): Boolean {
-        return applicationContext.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    fun hideFlashMenu(hide: Boolean) {
-        hideFlashActive = hide
-        invalidateOptionsMenu()
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        return when (item.itemId) {
+//            R.id.exit -> {
+//                startActivity(Intent(this, WelcomeActivity::class.java))
+//                finish()
+//                true
+//            }
+//            R.id.action_about -> {
+//                if (!flashActive) {
+//                    flashActive = true
+//                    scanFragment.enableFlash(true)
+//                }
+//                true
+//            }
+//            R.id.action_flash -> {
+//                if (flashActive) {
+//                    flashActive = false
+//                    scanFragment.enableFlash(false)
+//                }
+//                invalidateOptionsMenu()
+//                true
+//            }
+//            else -> super.onOptionsItemSelected(item)
+//        }
+//    }
+//
+//    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+//
+//        if (!hasFlash()) {
+//            menu?.findItem(R.id.action_flash)?.isVisible = false
+//        }
+//        menu?.findItem(R.id.action_flash)?.isVisible = !hideFlashActive
+//        if (flashActive) {
+//            menu?.findItem(R.id.action_flash)?.icon =
+//                ContextCompat.getDrawable(this, R.drawable.ic_baseline_flash_off_24)
+//        } else {
+//            menu?.findItem(R.id.action_flash)?.icon =
+//                ContextCompat.getDrawable(this, R.drawable.ic_baseline_flash_on_24)
+//        }
+//
+//        return super.onPrepareOptionsMenu(menu)
+//    }
+//
+//    private fun hasFlash(): Boolean {
+//        return applicationContext.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)
+//    }
+//
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.menu_main, menu)
+//        return true
+//    }
+//
+//    fun hideFlashMenu(hide: Boolean) {
+//        hideFlashActive = hide
+//        invalidateOptionsMenu()
+//    }
 
 
     companion object {

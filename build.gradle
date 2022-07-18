@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        compose_version = '1.1.0-beta01'
+        ext.compose_version = '1.2.0-alpha05'
     }
     ext.kotlin_version = "1.6.10"
     ext.latestAboutLibsRelease = "8.3.0"
